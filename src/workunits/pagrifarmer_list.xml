@@ -1,0 +1,6 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="agri_farmerprofile">
+    <invokers>
+       <invoker folderid="home/maguuma" action="init" caption="Farmers List" orderBy="farmerid" role="SHARED" index="100" />
+    </invokers>
+</workunit>
+
