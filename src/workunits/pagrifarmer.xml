@@ -1,9 +1,9 @@
-<workunit schemaName="agri_pagrifarmer">
+<workunit schemaName="agri_farmerprofile">
     <invokers>
-        <invoker type="agri_pagrifarmer:open"  action="open" caption="Farmer" target="window"/>
-        <invoker type="agri_pagrifarmer:create" action="create" target="window"/>
-        <invoker folderid="home/maguuma" caption="Farmer" action="create" index="1" target="window" />
-        <invoker type="formActions" caption="Approve" action="save:approve" />
+        <invoker type="agri_farmerprofile:open"  action="open" caption="Open Farmer" target="window" role="ENCODER"/>
+        <invoker type="agri_farmerprofile:create" action="create" caption="Create Farmer" target="window" role="ENCODER"/>
+        <invoker folderid="home/maguuma" caption="New Farmer" action="create" index="1" target="window" role="ENCODER"/>
+        <invoker type="formActions" caption="Approve" action="approve" role="APPROVER"/>
     </invokers>
     <code class="agri.maguuma.models.FarmerModel"/>
     <pages>
