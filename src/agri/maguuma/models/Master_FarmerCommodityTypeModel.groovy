@@ -8,15 +8,15 @@ import com.rameses.util.*;
 
 class FarmerCommodityTypeModel extends CrudFormModel{
     
-    def getLookupCommodity(){
-            return Inv.lookupOpener('master_commodity:lookup',[
-               onselect :{
-                   entity.commodity_objid = it.objid;
-                   entity.commodity_name = it.name;
-                   binding.refresh(); 
-               },
-           ])
-        }
+//    def getLookupCommodity(){
+//            return Inv.lookupOpener('master_commodity:lookup',[
+//               onselect :{
+//                   entity.commodity.objid = it.objid;
+//                   entity.commodity.name = it.name;
+//                   binding.refresh(); 
+//               },
+//           ])
+//        }
 
 
    
