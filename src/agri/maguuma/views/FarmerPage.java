@@ -136,7 +136,6 @@ public class FarmerPage extends javax.swing.JPanel {
             })
         });
         xDataTable5.setHandler("farmLivestockHandler");
-        xDataTable5.setId("farmLivestockHandler");
         xDataTable5.setName("selectedLivestock"); // NOI18N
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder2 = new com.rameses.rcp.control.border.XTitledBorder();
@@ -272,7 +271,6 @@ public class FarmerPage extends javax.swing.JPanel {
             })
         });
         xDataTable6.setHandler("farmCommodityHandler");
-        xDataTable6.setId("farmCommodityHandler");
         xDataTable6.setName("selectedCommodity"); // NOI18N
 
         javax.swing.GroupLayout xPanel1Layout = new javax.swing.GroupLayout(xPanel1);
@@ -304,12 +302,12 @@ public class FarmerPage extends javax.swing.JPanel {
         jTabbedPane1.addTab("Farmer Items", xScrollPane1);
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder4 = new com.rameses.rcp.control.border.XTitledBorder();
-        xTitledBorder4.setTitle("Farmer Location");
+        xTitledBorder4.setTitle("Farmer Facility");
         xDataTable7.setBorder(xTitledBorder4);
         xDataTable7.setColumns(new com.rameses.rcp.common.Column[]{
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "location"}
-                , new Object[]{"caption", "Location"}
+                new Object[]{"name", "facilityname"}
+                , new Object[]{"caption", "Facility Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -319,11 +317,11 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.OpenerColumnHandler("#{item.location.text}", "farmLocationLookup")}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.OpenerColumnHandler("#{item.facility.text}", "farmFacilityLookup")}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "areaha"}
-                , new Object[]{"caption", "Area"}
+                new Object[]{"name", "name"}
+                , new Object[]{"caption", "Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -334,11 +332,11 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"editableWhen", null}
                 , new Object[]{"alignment", "RIGHT"}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.DecimalColumnHandler("#,##0.00", -1.0, -1.0, false, 2)}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "pin"}
-                , new Object[]{"caption", "Pin"}
+                new Object[]{"name", "numberunit"}
+                , new Object[]{"caption", "Number of Unit"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -347,9 +345,8 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"nullWhenEmpty", true}
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
-                , new Object[]{"alignment", "LEFT"}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.IntegerColumnHandler(null, -1, -1)}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "modeofacquisition"}
@@ -368,7 +365,7 @@ public class FarmerPage extends javax.swing.JPanel {
             })
         });
         xDataTable7.setHandler("farmLocationHandler");
-        xDataTable7.setName("selectedFarmLocation "); // NOI18N
+        xDataTable7.setName("selectedFarmFacility"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -376,7 +373,7 @@ public class FarmerPage extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(xDataTable7, javax.swing.GroupLayout.DEFAULT_SIZE, 1294, Short.MAX_VALUE)
+                .addComponent(xDataTable7, javax.swing.GroupLayout.DEFAULT_SIZE, 1282, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -448,12 +445,11 @@ public class FarmerPage extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(xFormPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(xPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(xPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

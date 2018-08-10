@@ -1,21 +1,6 @@
-"entity.*|selectedFarmerItem"[mode == 'read']{
-    enabled:false;
+"selectedFarmlocation|selectedFarmFacility|selectedCommdity|selectedLivestock"[mode='read']{
+    enable:false;
 }
-
-"entity.*|selectedFarmerItem"[mode != 'read']{
-    enabled:true;
+"selectedFarmlocation|selectedFarmFacility|selectedCommdity|selectedLivestock"[mode!='read']{
+    enable:true;
 }
-
-"entity.*|selectedFacilityItem"[mode == 'read']{
-    enabled:false;
-}
-"entity.*|selectedFacilityItem"[mode != 'read']{
-    enabled:true;
-}
-
-
-
-"entity.objid"[mode == 'edit']{
-    enabled:false;
-}
-

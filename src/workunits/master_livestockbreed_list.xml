@@ -1,4 +1,4 @@
-<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="master_breed">
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="master_livestock_breed">
     <invokers>
         <invoker folderid="home/maguuma/master/livestock" caption="Breed" action="init" index="50" role="MASTER" />
     </invokers>

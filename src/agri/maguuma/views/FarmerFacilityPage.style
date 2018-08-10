@@ -1,0 +1,6 @@
+"selectedFarmFacility"[mode='read']{
+    enable:false;
+}
+"selectedFarmFacility"[mode!='read']{
+    enable:true;
+}

@@ -9,7 +9,7 @@ import com.rameses.util.*;
 class Master_FarmerBreedModel extends CrudFormModel{
 
    def getLookupSpecie(){
-            return Inv.lookupOpener('master_specie:lookup',[
+            return Inv.lookupOpener('master_livestock_specie:lookup',[
                onselect :{
                    entity.species_objid = it.objid;
                    entity.species_name = it.name;
