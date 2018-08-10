@@ -8,7 +8,7 @@ import com.rameses.util.*;
 
 class FarmerCommodityVarietyTypeModel extends CrudFormModel{
     
-    def getLookupCommoditytype(){
+     def getLookupCommoditytype(){
             return Inv.lookupOpener('master_commoditytype:lookup',[
                onselect :{
                    entity.commoditytype_objid = it.objid;

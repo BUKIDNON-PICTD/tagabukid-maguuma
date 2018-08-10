@@ -279,7 +279,10 @@ class FarmerModel extends CrudFormModel{
         p.findBy = [farmer];
         return querySvc.findFirst(p);
     }
-    
+    /// LOOKUP COMMODITY FARMER MAIN PAGE
+    def getLookupCommodityVariey(){
+       return Inv.lookupOpener('master_commodity_variety:lookup')
+    }
     
 
 }
