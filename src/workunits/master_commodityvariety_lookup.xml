@@ -1,7 +1,7 @@
 <workunit extends="com/rameses/seti2/templates/CrudLookup.xml" 
-         schemaName="master_commodityvariety">
+         schemaName="master_commodity_variety">
   <invokers>
-      <invoker type="master_commodityvariety" caption="Lookup Variety" 
+      <invoker type="master_commodity_variety" caption="Lookup Variety" 
                  action="init" target="popup" height="350"  
                  cols="commoditytype_name,code,name,description"/>
   </invokers>

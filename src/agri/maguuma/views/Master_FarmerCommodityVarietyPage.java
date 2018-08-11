@@ -44,8 +44,8 @@ public class Master_FarmerCommodityVarietyPage extends javax.swing.JPanel {
         xFormPanel1.setCaptionWidth(120);
 
         xLookupField1.setCaption("Lookup Commodity Type");
-        xLookupField1.setExpression("#{entity.commoditytype}");
-        xLookupField1.setHandler("lookupCommoditytype");
+        xLookupField1.setExpression("#{entity.commoditytype.name}");
+        xLookupField1.setHandler("master_commodity_type:lookup");
         xLookupField1.setName("entity.commoditytype"); // NOI18N
         xLookupField1.setPreferredSize(new java.awt.Dimension(0, 20));
         xFormPanel1.add(xLookupField1);
