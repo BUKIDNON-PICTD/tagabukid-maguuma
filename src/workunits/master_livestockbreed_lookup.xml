@@ -3,6 +3,6 @@
   <invokers>
       <invoker type="master_livestock_breed:lookup" caption="Lookup Breed" 
                  action="init" target="popup" height="350"  
-                 cols="species_name,code,name,description"/>
+                 cols="species.name,code,name,description"/>
   </invokers>
 </workunit>

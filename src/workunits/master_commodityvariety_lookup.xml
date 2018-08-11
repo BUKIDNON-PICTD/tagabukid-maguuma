@@ -3,7 +3,7 @@
   <invokers>
       <invoker type="master_commodity_variety:lookup" caption="Lookup Variety" 
                  action="init" target="popup" height="350"  
-                 cols="commodity.name,commoditytype.name,code,name,description"/>
+                 cols="commoditytype.commodity.name,commoditytype.name,code,name,description"/>
   </invokers>
  
 </workunit>

@@ -38,6 +38,8 @@ class FarmerModel extends CrudFormModel{
     def selectedFarmLocation;
     def selectedFarmFacility;
     def selectedCommodity;
+    def selectedLivestock;
+
     
     public void afterCreate(){
         entity = svc.initCreate()
@@ -49,6 +51,7 @@ class FarmerModel extends CrudFormModel{
                 it.putAll(persistenceSvc.read([_schemaname:'agri_farmerprofile_location',objid:it.objid]))
             }
         }
+        println entity
     }
    
     public void beforeSave(o){
@@ -56,7 +59,7 @@ class FarmerModel extends CrudFormModel{
             if(validateBeforeSave(entity)) throw new Exception("Farmer already exists");
         }
     }
-  
+    
     def farmLocationHandler  = [
         fetchList: { 
             return entity?.farmlocations;
@@ -88,6 +91,7 @@ class FarmerModel extends CrudFormModel{
         },
     ] as EditorListModel;
     
+
     def getFarmLocationLookup(){
         def h = { o->
             selectedFarmLocation?.location = o;
@@ -99,16 +103,34 @@ class FarmerModel extends CrudFormModel{
     
     def farmCommodityHandler  = [
         fetchList: { 
-            selectedFarmLocation?.commodities;
+            return selectedFarmLocation?.commodities;
         },
         onAddItem : {
-            selectedFarmLocation.commodities.add(it);
+            selectedFarmLocation.commodities << it
         },
         onRemoveItem : {
             if (MsgBox.confirm('Delete item?')) {
-                persistenceSvc.removeEntity([_schemaname:'master_commodity_variety',objid:it.objid])
+                persistenceSvc.removeEntity([_schemaname:'agri_farmerprofile_location_commodity',objid:it.objid])
                 selectedFarmLocation.commodities.remove(it)
                 farmCommodityHandler.reload();
+                return true;
+            }
+            return false;
+        }
+    ] as EditorListModel;
+    
+    def farmLiveStockHandler  = [
+        fetchList: { 
+            return selectedFarmLocation?.livestocks;
+        },
+        onAddItem : {
+            selectedFarmLocation.livestocks << it
+        },
+        onRemoveItem : {
+            if (MsgBox.confirm('Delete item?')) {
+                persistenceSvc.removeEntity([_schemaname:'agri_farmerprofile_location_livestock',objid:it.objid])
+                selectedFarmLocation.livestocks.remove(it)
+                farmLiveStockHandler.reload();
                 return true;
             }
             return false;
