@@ -1,7 +1,7 @@
-<workunit schemaName="master_specie">
+<workunit schemaName="master_livestock_species">
     <invokers>
-        <invoker type="master_specie:create" caption="Specie Capture" action="create" role="MASTER"/>
-        <invoker type="master_specie:open" caption="Specie Capture" action="open" role="MASTER"/>
+        <invoker type="master_livestock_species:create" caption="Specie Capture" action="create" role="MASTER"/>
+        <invoker type="master_livestock_species:open" caption="Specie Capture" action="open" role="MASTER"/>
     </invokers>
     <code class="agri.maguuma.models.Master_FarmerSpecieModel" />
     <pages>
