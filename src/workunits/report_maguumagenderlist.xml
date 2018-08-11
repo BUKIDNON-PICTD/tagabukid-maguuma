@@ -1,6 +1,6 @@
 <workunit extends="rpt_wtemplates/ReportController.xml" >
     <invokers>
-        <invoker folderid="/explorer/report/pdrcreports" action="init" caption="PDRC Master File by Gender" target="window" index="1" />
+        <invoker folderid="/explorer/report/maguuma" action="init" caption="Maguuma Master File by Gender" target="window" index="1" />
         
     </invokers>
     <code>
@@ -18,7 +18,7 @@ class TagabukidPDRCMasterListByGenderReportController extends tagabukid.common.m
     def svc
     
     String title = 'PDRC Master File by Gender'
-    String reportPath = 'tagabukid/pdrc/reports/'
+    String reportPath = 'tagabukid/maguuma/reports/'
     String reportName = reportPath + 'pdrcmasterlistbygender.jasper';
     
     def data 
