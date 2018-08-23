@@ -7,7 +7,9 @@
     </folder> -->
     
     <folder id="explorer">
-        <folder id="Transactions" caption="Mag-uuma Transactions" index="100">            
+        <folder id="report" caption="Reports" index="100">
+            <folder id="maguuma" caption="Maguuma" index="100">            
+            </folder>            
          </folder>
  </folder>
  

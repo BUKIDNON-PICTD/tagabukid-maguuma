@@ -151,7 +151,6 @@ public class FarmerPage extends javax.swing.JPanel {
         xDataTable5.setDepends(new String[] {"selectedFarmLocation"});
         xDataTable5.setDynamic(true);
         xDataTable5.setHandler("farmLiveStockHandler");
-        xDataTable5.setId("farmLiveStockHandler");
         xDataTable5.setName("selectedLivestock"); // NOI18N
 
         com.rameses.rcp.control.border.XTitledBorder xTitledBorder2 = new com.rameses.rcp.control.border.XTitledBorder();
@@ -267,8 +266,22 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.LookupColumnHandler("#{item.variety.name}", "master_commodity_variety:lookup")}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
+                new Object[]{"name", "variety.commoditytype.unit"}
+                , new Object[]{"caption", "Unit"}
+                , new Object[]{"width", 100}
+                , new Object[]{"minWidth", 0}
+                , new Object[]{"maxWidth", 0}
+                , new Object[]{"required", false}
+                , new Object[]{"resizable", true}
+                , new Object[]{"nullWhenEmpty", true}
+                , new Object[]{"editable", false}
+                , new Object[]{"alignment", "CENTER"}
+                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
+                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
+            }),
+            new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "areasqm"}
-                , new Object[]{"caption", "Area (sqm)"}
+                , new Object[]{"caption", "Quantity"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -277,13 +290,12 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"nullWhenEmpty", true}
                 , new Object[]{"editable", true}
                 , new Object[]{"editableWhen", null}
-                , new Object[]{"alignment", "CENTER"}
                 , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.NONE}
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.DecimalColumnHandler("#,##0.00", -1.0, -1.0, false, 2)}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "datestart"}
-                , new Object[]{"caption", "Crop Start"}
+                , new Object[]{"caption", "Crop Seeding"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -298,7 +310,7 @@ public class FarmerPage extends javax.swing.JPanel {
             }),
             new com.rameses.rcp.common.Column(new Object[]{
                 new Object[]{"name", "dateend"}
-                , new Object[]{"caption", "Crop End"}
+                , new Object[]{"caption", "Crop Harvesting"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
                 , new Object[]{"maxWidth", 0}
@@ -394,7 +406,6 @@ public class FarmerPage extends javax.swing.JPanel {
             })
         });
         xDataTable7.setHandler("farmFacilityHandler");
-        xDataTable7.setId("farmFacilityHandler");
         xDataTable7.setName("selectedFarmFacility"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

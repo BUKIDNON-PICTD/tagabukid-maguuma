@@ -76,19 +76,7 @@ class FarmerModel extends CrudFormModel{
             }
             return false;
         },
-        onColumnUpdate: { o,col-> 
-            o.dateoflastupdate = dtSvc.getServerDate();
-            o.lastupdatedbyuser = OsirisContext.env.FULLNAME;
-            o.lastupdatedbyuserid = OsirisContext.env.USERID;
-            
-            //kani para ma kumpleto ang address pag local
-            if (col == 'location') { 
-                if(o.location.type == 'local'){
-                    o.location.text = svc.formatAddress(o.location,"\n")
-                }
-            } 
-            
-        },
+        
     ] as EditorListModel;
     
 
@@ -116,7 +104,18 @@ class FarmerModel extends CrudFormModel{
                 return true;
             }
             return false;
-        }
+        },
+        // throw error ca
+        onColumnUpdate: { o,col-> 
+            
+            //kani para ma ekumpleto ang address pag local
+            if (col == 'areasqm') { 
+                if(selectedFarmLocation.areasqm != selectedFarmLocation.commodities.areasqm.sum()){
+                    throw new Exception("The Total area is Exceeding")
+                }
+            } 
+            
+        },
     ] as EditorListModel;
     
     def farmLiveStockHandler  = [
