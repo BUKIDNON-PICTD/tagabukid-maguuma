@@ -1,0 +1,72 @@
+<workunit extends="rpt_wtemplates/ReportController.xml" >
+    <invokers>
+        <invoker folderid="/explorer/report/maguuma" action="init" caption="Maguuma Master File by Gender" target="window" index="1" />
+        
+    </invokers>
+    <code>
+
+<![CDATA[
+
+import com.rameses.rcp.common.*;
+import com.rameses.rcp.annotations.*;
+import com.rameses.osiris2.client.*;
+import com.rameses.osiris2.reports.*;
+
+class TagabukidPDRCMasterListByGenderReportController extends tagabukid.common.models.AsyncReportController
+{
+    @Service('TagabukidPDRCReportService') 
+    def svc
+    
+    String title = 'PDRC Master File by Gender'
+    String reportPath = 'tagabukid/maguuma/reports/'
+    String reportName = reportPath + 'pdrcmasterlistbygender.jasper';
+    
+    def data 
+        
+    void buildReportData(entity, asyncHandler){
+        svc.getPDRCMasterListByGender(entity, asyncHandler)
+    }
+    
+    Map getParameters(){
+        return data.parameters;
+    }
+    
+    
+   def formControl = [
+        getFormControls: {
+            return [
+                new FormControl( "combo", [caption:'Gender', name:'entity.gender', items:'genderList', preferredSize:'100,19', captionWidth:100, allowNull:false, required:true]),
+                //new FormControl( "combo", [caption:'Status', name:'entity.status', items:'statusList', preferredSize:'100,19', captionWidth:100, allowNull:false, required:true]),
+                new FormControl( "lookup", [caption:'Case', name:'entity.casefile', preferredSize:'[0,21]', handler:'lookup:tagabukid_pdrc_cases', expression:'#{item.name}', captionWidth:100,required:true]),
+                //new FormControl( "checkbox", [caption:'Rerport As of', name:'entity.asof', preferredSize:'100,19' , captionWidth:100]),
+                //new FormControl( "integer", [caption:'Year', name:'entity.year', required:true, preferredSize:'100,19' , captionWidth:100]),
+                //new FormControl( "combo", [caption:'Quarter', name:'entity.qtr', items:'quarters', preferredSize:'100,19', immediate:true  , captionWidth:100,required:true]),
+                //new FormControl( "combo", [caption:'Month', name:'entity.month', items:'monthsByQtr', depends:['entity.qtr'] as String[], expression:'#{item.name}', dynamic:true, preferredSize:'100,19', immediate:true, captionWidth:100,emptyText:'ALL']),
+                //new FormControl( "combo", [caption:'Day', name:'entity.day', items:'days', dynamic:true, depends:['entity.month'] as String[], immediate:true, preferredSize:'100,19' , captionWidth:100,emptyText:'ALL']),
+                //new FormControl( "checkbox", [caption:'', name:'entity.asof', text:' Print Report as of?', preferredSize:'0,19' , captionWidth:100]),
+                //new FormControl( "combo", [caption:'Office', name:'entity.org', items:'orgs', expression:'#{item.org.name}', preferredSize:'0,19', captionWidth:100 , visibleWhen:'#{isAdmin == true}',emptyText:'ALL']),
+                //new FormControl( "combo", [caption:'Document Type', name:'entity.documenttype', items:'documenttypes', expression:'#{item.name}', preferredSize:'0,19', captionWidth:100,emptyText:'ALL' ]),
+                //new FormControl( "combo", [caption:'Created By', name:'entity.encoder', items:'encoders', expression:'#{item.fullname}', preferredSize:'0,19', captionWidth:100,emptyText:'ALL' ]),
+                //new FormControl( "combo", [caption:'State', name:'entity.state', items:'states', expression:'#{item.title}', preferredSize:'0,19', captionWidth:100,emptyText:'ALL' ]),
+            ]    
+        },
+   ] as FormPanelModel;
+   
+   List getGenderList() {
+        return ['Male','Female']
+   }
+    
+    //SubReport[] getSubReports() {
+        //return [ 
+        //       new SubReport("OPCRList", reportPath + "opcrlist.jasper"),
+        //       new SubReport("DPCRList", reportPath + "dpcrlist.jasper"),
+        //       new SubReport("IPCRList", reportPath + "ipcrlist.jasper"),
+        //       new SubReport("RatingItems", reportPath + "ratingitems.jasper"),
+        //   ] as SubReport[];    
+    //}
+
+}
+]]>        
+        
+    </code>
+</workunit>
