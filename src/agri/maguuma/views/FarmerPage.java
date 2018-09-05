@@ -280,7 +280,7 @@ public class FarmerPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "areasqm"}
+                new Object[]{"name", "qty"}
                 , new Object[]{"caption", "Quantity"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}

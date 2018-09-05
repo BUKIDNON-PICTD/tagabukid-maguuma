@@ -44,16 +44,22 @@ class FarmerModel extends CrudFormModel{
     public void afterCreate(){
         entity = svc.initCreate()
     }
-    
+    public void Create(){
+        entity = svc.initCreate();
+    }
     public void afterOpen(){
         if(entity.farmlocations){
             entity.farmlocations.each{
                 it.putAll(persistenceSvc.read([_schemaname:'agri_farmerprofile_location',objid:it.objid]))
             }
         }
-        println entity
+        //println entity
     }
-   
+   public void Save(o){
+        if(mode == 'create'){
+            entity = svc.initCreate();
+        }
+    }
     public void beforeSave(o){
         if(mode == 'create' ) {
             if(validateBeforeSave(entity)) throw new Exception("Farmer already exists");
@@ -109,11 +115,11 @@ class FarmerModel extends CrudFormModel{
         onColumnUpdate: { o,col-> 
             
             //kani para ma ekumpleto ang address pag local
-            if (col == 'areasqm') { 
-                if(selectedFarmLocation.areasqm != selectedFarmLocation.commodities.areasqm.sum()){
-                    throw new Exception("The Total area is Exceeding")
-                }
-            } 
+//            if (col == 'qty') { 
+//                if(selectedFarmLocation.areasqm != selectedFarmLocation.commodities.areasqm.sum()){
+//                    throw new Exception("The Total area is Exceeding")
+//                }
+//            } 
             
         },
     ] as EditorListModel;
